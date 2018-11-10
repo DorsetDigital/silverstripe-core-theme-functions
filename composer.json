@@ -2,7 +2,7 @@
   "name": "dorsetdigital/silverstripe-derriford-theme-functions",
   "version": "1",
   "description": "SilverStripe Bootstrap 4 theme - additional functions",
-  "type": "silverstripe-theme",
+  "type": "silverstripe-vendormodule",
   "keywords": ["silverstripe", "theme", "bootstrap", "bootstrap 4"],
   "license": "BSD-3-Clause",
   "authors": [
