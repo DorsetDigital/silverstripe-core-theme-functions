@@ -3,6 +3,28 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="DorsetDigital\Themes\Derriford\" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/admin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/asset-admin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/campaign-admin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/cms" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/elemental-bannerblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/elemental-fileblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/graphql" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/reports" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/segment-field" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/siteconfig" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/userforms" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/vendor-plugin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/versioned" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/silverstripe/versioned-admin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

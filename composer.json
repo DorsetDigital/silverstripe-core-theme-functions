@@ -16,7 +16,11 @@
     "composer/installers": "*",
     "silverstripe/framework": ">=4.0",
     "dorsetdigital/silverstripe-requirementsinline": "^1",
-    "ryanpotter/silverstripe-color-field": "^1"
+    "tractorcow/silverstripe-colorpicker": "^4",
+    "dnadesign/silverstripe-elemental": "^3.0",
+    "silverstripe/elemental-bannerblock": "^1.0",
+    "dorsetdigital/silverstripe-photoswipe-elemental": "^1.0",
+    "silverstripe/userforms": "^5"
   },
   "minimum-stability": "dev",
   "suggest": {

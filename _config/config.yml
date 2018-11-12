@@ -5,3 +5,11 @@ Name: DerrifordConfig
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - DorsetDigital\Themes\Derriford\ConfigExtension
+
+Page:
+  extensions:
+  - DorsetDigital\Themes\Derriford\SiteTreeThemeExtension
+
+PageController:
+  extensions:
+    - DorsetDigital\Themes\Derriford\PageControllerExtension
