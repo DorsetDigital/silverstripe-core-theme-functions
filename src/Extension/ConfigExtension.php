@@ -1,8 +1,8 @@
 <?php
 
-namespace DorsetDigital\Themes\Derriford;
+namespace DorsetDigital\Themes\Derriford\Extension;
 
-use RyanPotter\SilverStripeColorField\Forms\ColorField;
+
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\EmailField;
@@ -12,6 +12,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
+use TractorCow\Colorpicker\Forms\ColorField;
 
 class ConfigExtension extends DataExtension
 {
@@ -25,11 +26,12 @@ class ConfigExtension extends DataExtension
         'Twitter' => 'Varchar(255)',
         'Instagram' => 'Varchar(255)',
         'LinkedIn' => 'Varchar(255)',
-        'MainBGColour' => 'Varchar(10)',
-        'MainTextColour' => 'Varchar(10)',
-        'MainNavColour' => 'Varchar(10)',
+        'MainBGColour' => 'Color',
+        'MainTextColour' => 'Color',
+        'MainNavColour' => 'Color',
         'InlineCriticalCSS' => 'Boolean(1)',
-        'Address' => 'Text'
+        'Address' => 'Text',
+        'LimitWidth' => 'Boolean(1)'
     ];
 
     private static $many_many = [
@@ -122,11 +124,15 @@ class ConfigExtension extends DataExtension
             CheckboxField::create('InlineCriticalCSS')
                 ->setTitle(_t(__CLASS__ . '.InlineCSS', 'Inline Critical CSS'))
                 ->setDescription(_t(__CLASS__ . '.InlineCSSDescription',
-                    'Inline critical CSS to improve page rendering performance')),
+                    'Temporarily inline critical CSS to improve page rendering performance until the browser caches it')),
             CheckboxField::create('ThemeCredits')
                 ->setTitle(_t(__CLASS__ . '.ThemeCredits', 'Show Theme Credits'))
                 ->setDescription(_t(__CLASS__ . '.ThemeCreditsDescription',
-                    'Show a small theme credit at the bottom of the page.  Please consider leaving this active if you use the theme!'))
+                    'Show a small theme credit at the bottom of the page.  Please consider leaving this active if you use the theme!')),
+            CheckboxField::create('LimitWidth')
+                ->setTitle(_t(__CLASS__ . '.LimitWidth', 'Constraint Content Width'))
+                ->setDescription(_t(__CLASS__ . '.LimitWidthDescription',
+                    'Limit the content width to a maximum of 1410px.  Uncheck to allow content to expand to fill any screen width.'))
         ]);
     }
 }
