@@ -22,8 +22,9 @@ class PageControllerExtension extends Extension
         Requirements::javascript('https://code.jquery.com/jquery-3.3.1.min.js', ['defer' => 'true']);
 
         $path = ThemeResourceLoader::inst()->findThemedJavascript('client/dist/javascript/site.min', SSViewer::get_themes());
-
         Requirements::javascript($path, ['defer' => 'true']);
+        
+        Requirements::block('silverstripe/elemental-bannerblock:client/dist/styles/frontend-default.css');
     }
 
     private function getThemeCSS()
