@@ -31,7 +31,9 @@ class ConfigExtension extends DataExtension
         'MainNavColour' => 'Color',
         'InlineCriticalCSS' => 'Boolean(1)',
         'Address' => 'Text',
-        'LimitWidth' => 'Boolean(1)'
+        'LimitWidth' => 'Boolean(1)',
+        'HeaderBGColour' => 'Color',
+        'FooterBGColour' => 'Color'
     ];
 
     private static $many_many = [
@@ -51,7 +53,9 @@ class ConfigExtension extends DataExtension
         'ThemeCredits' => 1,
         'MainBGColour' => '#ffffff',
         'MainTextColour' => '#222222',
-        'MainNavColour' => '#000000'
+        'MainNavColour' => '#000000',
+        'HeaderBGColour' => '#ffffff',
+        'FooterBGColour' => '#ffffff'
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -117,7 +121,11 @@ class ConfigExtension extends DataExtension
             ColorField::create('MainTextColour')
                 ->setTitle(_t(__CLASS__ . '.MainTextColour', 'Site primary text colour')),
             ColorField::create('MainNavColour')
-                ->setTitle(_t(__CLASS__ . '.MainNavColour', 'Site main nav text colour'))
+                ->setTitle(_t(__CLASS__ . '.MainNavColour', 'Site main nav text colour')),
+            ColorField::create('HeaderBGColour')
+                ->setTitle(_t(__CLASS__ . '.HeaderBGColour', 'Header background colour')),
+            ColorField::create('FooterBGColour')
+                ->setTitle(_t(__CLASS__ . '.FooterBGColour', 'Footer background colour'))
         ]);
 
         $fields->addFieldsToTab('Root.ThemeSettings', [

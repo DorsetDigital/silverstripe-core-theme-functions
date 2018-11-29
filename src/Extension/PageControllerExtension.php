@@ -23,7 +23,7 @@ class PageControllerExtension extends Extension
 
         $path = ThemeResourceLoader::inst()->findThemedJavascript('client/dist/javascript/site.min', SSViewer::get_themes());
         Requirements::javascript($path, ['defer' => 'true']);
-        
+
         Requirements::block('silverstripe/elemental-bannerblock:client/dist/styles/frontend-default.css');
     }
 
@@ -33,6 +33,7 @@ class PageControllerExtension extends Extension
         $bgcolour = $config->MainBGColour;
         $textcolour = $config->MainTextColour;
         $navcolour = $config->MainNavColour;
+        $headerBG = $config->HeaderBGColour;
 
         $css = $this->createCSSTag('html,body', [
                 'background-color' => '#'.$bgcolour,
@@ -40,7 +41,8 @@ class PageControllerExtension extends Extension
             ]
         );
 
-        $css .= $this->createCSSTag('nav-item', 'color:#'.$navcolour);
+        $css .= $this->createCSSTag('.nav-item', 'color:#'.$navcolour);
+        $css .= $this->createCSSTag('header', 'background-color:#'.$headerBG);
 
         return $css;
     }
