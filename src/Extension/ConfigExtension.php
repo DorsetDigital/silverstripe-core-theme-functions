@@ -33,7 +33,9 @@ class ConfigExtension extends DataExtension
         'Address' => 'Text',
         'LimitWidth' => 'Boolean(1)',
         'HeaderBGColour' => 'Color',
-        'FooterBGColour' => 'Color'
+        'FooterBGColour' => 'Color',
+        'HighlightColour1' => 'Color',
+        'AsyncCSS' => 'Boolean'
     ];
 
     private static $many_many = [
@@ -51,11 +53,13 @@ class ConfigExtension extends DataExtension
     private static $defaults = [
         'InlineCriticalCSS' => 1,
         'ThemeCredits' => 1,
-        'MainBGColour' => '#ffffff',
-        'MainTextColour' => '#222222',
-        'MainNavColour' => '#000000',
-        'HeaderBGColour' => '#ffffff',
-        'FooterBGColour' => '#ffffff'
+        'MainBGColour' => 'ffffff',
+        'MainTextColour' => '222222',
+        'MainNavColour' => '000000',
+        'HeaderBGColour' => 'ffffff',
+        'FooterBGColour' => 'ffffff',
+        'HighlightColour1' => '0086B5',
+        'AsyncCSS' => 1
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -125,14 +129,21 @@ class ConfigExtension extends DataExtension
             ColorField::create('HeaderBGColour')
                 ->setTitle(_t(__CLASS__ . '.HeaderBGColour', 'Header background colour')),
             ColorField::create('FooterBGColour')
-                ->setTitle(_t(__CLASS__ . '.FooterBGColour', 'Footer background colour'))
+                ->setTitle(_t(__CLASS__ . '.FooterBGColour', 'Footer background colour')),
+            ColorField::create('HighlightColour1')
+                ->setTitle(_t(__CLASS__ . '.HighlightColour1', 'Highlight colour 1'))
+                ->setDescription(_t(__CLASS__ . '.HighlightColour1Desc', 'Used as a background / font colour for various elements on the site'))
         ]);
 
         $fields->addFieldsToTab('Root.ThemeSettings', [
             CheckboxField::create('InlineCriticalCSS')
                 ->setTitle(_t(__CLASS__ . '.InlineCSS', 'Inline Critical CSS'))
                 ->setDescription(_t(__CLASS__ . '.InlineCSSDescription',
-                    'Temporarily inline critical CSS to improve page rendering performance until the browser caches it')),
+                    'Inline critical CSS to improve page rendering performance')),
+            CheckboxField::create('AsyncCSS')
+                ->setTitle(_t(__CLASS__ . '.AsyncCSS', 'Load external CSS asynchronously'))
+                ->setDescription(_t(__CLASS__ . '.AsyncCSSDescription',
+                    'Loading the CSS files asynchronously using Javascript can reduce render blocking requests')),
             CheckboxField::create('ThemeCredits')
                 ->setTitle(_t(__CLASS__ . '.ThemeCredits', 'Show Theme Credits'))
                 ->setDescription(_t(__CLASS__ . '.ThemeCreditsDescription',

@@ -18,3 +18,7 @@ SilverStripe\CMS\Model\SiteTree:
   extensions:
   - DorsetDigital\Themes\Derriford\Extension\SiteTreeThemeExtension
   - DorsetDigital\Themes\Derriford\Extension\PageExtension
+
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\View\Requirements_Backend:
+    class: DorsetDigital\Themes\Derriford\Extension\CustomRequirements
