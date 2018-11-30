@@ -16,8 +16,7 @@
     "composer/installers": "*",
     "silverstripe/framework": "^4.0",
     "dorsetdigital/silverstripe-requirementsinline": "^1",
-    "tractorcow/silverstripe-colorpicker": "^4",
-    "silverstripe/userforms": "^5"
+    "tractorcow/silverstripe-colorpicker": "^4"
   },
   "minimum-stability": "dev",
   "suggest": {
