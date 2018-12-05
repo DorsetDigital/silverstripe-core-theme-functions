@@ -22,3 +22,7 @@ SilverStripe\CMS\Model\SiteTree:
 SilverStripe\Core\Injector\Injector:
   SilverStripe\View\Requirements_Backend:
     class: DorsetDigital\Themes\Derriford\Extension\CustomRequirements
+
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - DorsetDigital\Themes\Derriford\Extension\ElementExtension

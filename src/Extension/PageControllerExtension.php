@@ -30,7 +30,7 @@ class PageControllerExtension extends Extension
         Requirements::themedCSS('client/dist/css/common');
 
         RequirementsInline::themedJavascript('client/dist/javascript/thirdparty/filament/cssrelpreload.js', __CLASS__.'preloadjs');
-        Requirements::javascript('https://code.jquery.com/jquery-3.3.1.min.js', ['defer' => 'true']);
+        Requirements::javascript('https://code.jquery.com/jquery-3.3.1.min.js');
 
         $path = ThemeResourceLoader::inst()->findThemedJavascript('client/dist/javascript/site.min',
             SSViewer::get_themes());
