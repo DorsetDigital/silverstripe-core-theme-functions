@@ -1,6 +1,6 @@
 <?php
 
-namespace DorsetDigital\Themes\Derriford\Extension;
+namespace DorsetDigital\Themes\Core\Extension;
 
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\CMS\Model\SiteTreeExtension;

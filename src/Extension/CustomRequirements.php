@@ -1,5 +1,5 @@
 <?php
-namespace DorsetDigital\Themes\Derriford\Extension;
+namespace DorsetDigital\Themes\Core\Extension;
 
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\Requirements_Backend;

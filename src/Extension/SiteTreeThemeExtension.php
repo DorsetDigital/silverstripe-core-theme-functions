@@ -1,6 +1,6 @@
 <?php
 
-namespace DorsetDigital\Themes\Derriford\Extension;
+namespace DorsetDigital\Themes\Core\Extension;
 
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\SiteConfig\SiteConfig;
@@ -20,7 +20,7 @@ class SiteTreeThemeExtension extends SiteTreeExtension
         $themeTag = HTML::createTag('meta',
             [
                 'name' => 'author',
-                'content' => 'Derriford SilverStripe theme by Dorset Digital - https://dorset-digital.net'
+                'content' => 'SilverStripe theme by Dorset Digital - https://dorset-digital.net'
             ]
         );
         $tags .= PHP_EOL . $themeTag;

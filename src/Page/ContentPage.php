@@ -1,6 +1,6 @@
 <?php
 
-namespace DorsetDigital\Themes\Derriford\Page;
+namespace DorsetDigital\Themes\Core\Page;
 
 class ContentPage extends \Page
 {

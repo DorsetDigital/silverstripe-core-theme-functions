@@ -1,28 +1,28 @@
 ---
-Name: DerrifordConfig
+Name: CoreThemeConfig
 ---
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - DorsetDigital\Themes\Derriford\Extension\ConfigExtension
+    - DorsetDigital\Themes\Core\Extension\ConfigExtension
 
 PageController:
   extensions:
-    - DorsetDigital\Themes\Derriford\Extension\PageControllerExtension
+    - DorsetDigital\Themes\Core\Extension\PageControllerExtension
 
-DorsetDigital\Themes\Derriford\Page\ContentPage:
+DorsetDigital\Themes\Core\Page\ContentPage:
   extensions:
   - DNADesign\Elemental\Extensions\ElementalPageExtension
 
 SilverStripe\CMS\Model\SiteTree:
   extensions:
-  - DorsetDigital\Themes\Derriford\Extension\SiteTreeThemeExtension
-  - DorsetDigital\Themes\Derriford\Extension\PageExtension
+  - DorsetDigital\Themes\Core\Extension\SiteTreeThemeExtension
+  - DorsetDigital\Themes\Core\Extension\PageExtension
 
 SilverStripe\Core\Injector\Injector:
   SilverStripe\View\Requirements_Backend:
-    class: DorsetDigital\Themes\Derriford\Extension\CustomRequirements
+    class: DorsetDigital\Themes\Core\Extension\CustomRequirements
 
 DNADesign\Elemental\Models\BaseElement:
   extensions:
-    - DorsetDigital\Themes\Derriford\Extension\ElementExtension
+    - DorsetDigital\Themes\Core\Extension\ElementExtension
