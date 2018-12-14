@@ -16,6 +16,11 @@ class ElementExtension extends DataExtension
         'PadElement' => 'Boolean'
     ];
 
+    private static $defaults = [
+        'PadElement' => 1,
+        'ElementConstrainWidth' => 1
+    ];
+
     public function updateCMSFields(FieldList $fields)
     {
         $fields->addFieldsToTab('Root.Settings', [
