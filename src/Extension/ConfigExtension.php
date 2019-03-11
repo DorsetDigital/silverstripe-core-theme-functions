@@ -13,6 +13,7 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use TractorCow\Colorpicker\Forms\ColorField;
+use SilverStripe\Assets\File;
 
 class ConfigExtension extends DataExtension
 {
@@ -35,13 +36,18 @@ class ConfigExtension extends DataExtension
         'HeaderBGColour' => 'Color',
         'FooterBGColour' => 'Color',
         'HighlightColour1' => 'Color',
-        'AsyncCSS' => 'Boolean'
+        'AsyncCSS' => 'Boolean',
+        'CopyrightBGColour' => 'Color',
+        'ShowTitles' => 'Boolean(1)',
+        'ConstrainTitles' => 'Boolean(1)',
+        'HeaderBorderColour' => 'Color',
+        'ConstrainBreadcrumbs' => 'Boolean(1)'
     ];
 
     private static $many_many = [
-        'MainLogo' => Image::class,
-        'MobileLogo' => Image::class,
-        'FooterLogo' => Image::class
+        'MainLogo' => File::class,
+        'MobileLogo' => File::class,
+        'FooterLogo' => File::class
     ];
 
     private static $owns = [
@@ -58,8 +64,12 @@ class ConfigExtension extends DataExtension
         'MainNavColour' => '000000',
         'HeaderBGColour' => 'ffffff',
         'FooterBGColour' => 'ffffff',
+        'CopyrightBGColour' => 'ffffff',
         'HighlightColour1' => '0086B5',
-        'AsyncCSS' => 1
+        'AsyncCSS' => 1,
+        'ShowTitles' => 1,
+        'ConstrainTitles' => 1,
+        'HeaderBorderColour' => 'ffffff'
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -68,17 +78,17 @@ class ConfigExtension extends DataExtension
         $fields->addFieldsToTab('Root.Logos', [
             UploadField::create('MainLogo')
                 ->setFolderName('logos')
-                ->setAllowedFileCategories('image/supported')
+                ->setAllowedExtensions(['gif', 'jpeg', 'jpg', 'png', 'bmp', 'ico', 'svg'])
                 ->setTitle(_t(__CLASS__ . '.MainLogo', 'Main logo')),
             UploadField::create('MobileLogo')
                 ->setFolderName('logos')
-                ->setAllowedFileCategories('image/supported')
+                ->setAllowedExtensions(['gif', 'jpeg', 'jpg', 'png', 'bmp', 'ico', 'svg'])
                 ->setTitle(_t(__CLASS__ . '.MobileLogo', 'Mobile logo'))
                 ->setDescription(_t(__CLASS__ . '.MobileLogoDescription',
                     'Alternative logo for small devices - leave blank to use only the main logo')),
             UploadField::create('FooterLogo')
                 ->setFolderName('logos')
-                ->setAllowedFileCategories('image/supported')
+                ->setAllowedExtensions(['gif', 'jpeg', 'jpg', 'png', 'bmp', 'ico', 'svg'])
                 ->setTitle(_t(__CLASS__ . '.FooterLogo', 'Footer logo'))
         ]);
 
@@ -128,8 +138,12 @@ class ConfigExtension extends DataExtension
                 ->setTitle(_t(__CLASS__ . '.MainNavColour', 'Site main nav text colour')),
             ColorField::create('HeaderBGColour')
                 ->setTitle(_t(__CLASS__ . '.HeaderBGColour', 'Header background colour')),
+            ColorField::create('HeaderBorderColour')
+                ->setTitle(_t(__CLASS__ . '.HeaderBorderColour', 'Header bottom border colour')),
             ColorField::create('FooterBGColour')
                 ->setTitle(_t(__CLASS__ . '.FooterBGColour', 'Footer background colour')),
+            ColorField::create('CopyrightBGColour')
+                ->setTitle(_t(__CLASS__ . '.CopyrightBGColour', 'Copyright bar background colour')),
             ColorField::create('HighlightColour1')
                 ->setTitle(_t(__CLASS__ . '.HighlightColour1', 'Highlight colour 1'))
                 ->setDescription(_t(__CLASS__ . '.HighlightColour1Desc', 'Used as a background / font colour for various elements on the site'))
@@ -151,7 +165,19 @@ class ConfigExtension extends DataExtension
             CheckboxField::create('LimitWidth')
                 ->setTitle(_t(__CLASS__ . '.LimitWidth', 'Constraint Content Width'))
                 ->setDescription(_t(__CLASS__ . '.LimitWidthDescription',
-                    'Limit the content width to a maximum of 1410px.  Uncheck to allow content to expand to fill any screen width.'))
+                    'Limit the content width to a maximum of 1410px.  Uncheck to allow content to expand to fill any screen width. (May be overridden by individual element settings)')),
+            CheckboxField::create('ShowTitles')
+                ->setTitle(_t(__CLASS__ . '.ShowTitles', 'Automatically show page titles'))
+                ->setDescription(_t(__CLASS__ . '.ShowTitlesDescription',
+                    'When checked, page titles are automatically added to the page in &lt;h1&gt; tags.  Uncheck if you prefer to add them manually using a content field.')),
+            CheckboxField::create('ConstrainTitles')
+                ->setTitle(_t(__CLASS__ . '.ConstrainTitles', 'Constraint Title Width'))
+                ->setDescription(_t(__CLASS__ . '.ConstrainTitleWidthDescription',
+                    'Limit the title width to a maximum of 1410px when titles are active.  Uncheck to allow titles to expand to fill any screen width.')),
+            CheckboxField::create('ConstrainBreadcrumbs')
+                ->setTitle(_t(__CLASS__ . '.ConstrainBreadcrumbs', 'Constraint Breadcrumb Width'))
+                ->setDescription(_t(__CLASS__ . '.ConstrainBreadcrumbWidthDescription',
+                    'Limit the title width to a maximum of 1410px.  Uncheck to allow breadcrumbs to expand to fill any screen width.'))
         ]);
     }
 }

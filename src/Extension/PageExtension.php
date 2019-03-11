@@ -29,6 +29,23 @@ class PageExtension extends DataExtension
         return "container-fluid";
     }
 
+    public function getTitleContainerClass() {
+        $config = SiteConfig::current_site_config();
+        if ($config->ConstrainTitles == 1) {
+            return "container";
+        }
+        return "container-fluid";
+    }
+
+    public function getBreadcrumbContainerClass() {
+        $config = SiteConfig::current_site_config();
+        if ($config->ConstrainBreadcrumbs == 1) {
+            return "container";
+        }
+        return "container-fluid";
+    }
+
+
     public function updateSettingsFields(FieldList $fields)
     {
         $fields->addFieldToTab('Root.Settings',
@@ -49,13 +66,13 @@ class PageExtension extends DataExtension
         if ($config->Facebook != "") {
             $social->push(ArrayData::create([
                 'Link' => $config->Facebook,
-                'Class' => 'fab fa-facebook'
+                'Class' => 'fab fa-facebook-f'
             ]));
         }
         if ($config->Twitter != "") {
             $social->push(ArrayData::create([
                 'Link' => $config->Twitter,
-                'Class' => 'fab fa-twitter-square'
+                'Class' => 'fab fa-twitter'
             ]));
         }
 
@@ -69,7 +86,7 @@ class PageExtension extends DataExtension
         if ($config->LinkedIn != "") {
             $social->push(ArrayData::create([
                 'Link' => $config->LinkedIn,
-                'Class' => 'fab fa-linkedin'
+                'Class' => 'fab fa-linkedin-in'
             ]));
         }
 

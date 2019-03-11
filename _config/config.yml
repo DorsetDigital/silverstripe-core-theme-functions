@@ -26,3 +26,7 @@ SilverStripe\Core\Injector\Injector:
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - DorsetDigital\Themes\Core\Extension\ElementExtension
+
+SilverStripe\Assets\File:
+  allowed_extensions:
+  - svg

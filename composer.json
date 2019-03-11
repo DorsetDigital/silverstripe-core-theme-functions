@@ -20,6 +20,7 @@
   },
   "minimum-stability": "dev",
   "suggest": {
+    "https://github.com/DorsetDigital/silverstripe-devwarning": "Adds reminders to the CMS for basic security issues"
   },
   "autoload": {
     "psr-4": {
